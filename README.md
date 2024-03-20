@@ -1,1 +1,1 @@
-# SyncDiffusion.github.io
+# re-ground.github.io
