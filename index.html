@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="description"
         content="SyncDiffusion synchronizes multiple diffusions to create coherent image montages.">
-  <meta name="keywords" content="SyncDiffusion, Diffusion models, Joint Diffusion">
+  <meta name="keywords" content="ReGround, Diffusion models, Grounding">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
-  <title>SyncDiffusion: Coherent Montage via Synchronized Joint Diffusions</title>
+  <title>ReGround: Improving Textual and Spatial Grounding at No Cost</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
@@ -48,15 +48,11 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">SyncDiffusion: Coherent Montage via Synchronized Joint Diffusions</h1>
-          <div style="font-size:x-large;">NeurIPS 2023</div><br>
+          <h1 class="title is-1 publication-title">ReGround: Improving Textual and Spatial Grounding at No Cost</h1>
+          <div style="font-size:x-large;">arXiv 2024</div><br>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
               <a href="https://phillipinseoul.github.io/">Yuseung Lee</a>,</span>
-            <span class="author-block">
-              <a href="https://soulmates2.github.io/">Kunho Kim</a>,</span>
-            <span class="author-block">
-              <a href="">Hyunjin Kim</a>,</span>
             <span class="author-block">
               <a href="https://mhsung.github.io/">Minhyuk Sung</a></span>
           </div>
@@ -69,7 +65,7 @@
             <div class="publication-links">
               <!-- PDF Link. -->
               <span class="link-block">
-                <a href="static/syncdiffusion_pdf.pdf"
+                <a href=""
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -78,7 +74,7 @@
                 </a>
               </span>
               <span class="link-block">
-                <a href="https://arxiv.org/abs/2306.05178"
+                <a href=""
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="ai ai-arxiv"></i>
@@ -88,32 +84,12 @@
               </span>
               <!-- Code Link. -->
               <span class="link-block">
-                <a href="https://github.com/KAIST-Geometric-AI-Group/SyncDiffusion"
+                <a href=""
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
                   </span>
-                  <span>Code</span>
-                  </a>
-              </span>
-              <!-- Demo Link.-->
-              <span class="link-block">
-                <a href="#huggingface_demo"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fas fa-chevron-circle-down"></i>
-                  </span>
-                  <span>Demo</span>
-                  </a>
-              </span>
-              <!-- Hugging Face Link.-->
-              <span class="link-block">
-                <a href="https://huggingface.co/spaces/KAIST-Geometric-AI-Lab/syncdiffusion-demo"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fas fa-magic"></i>
-                  </span>
-                  <span>HuggingFace</span>
+                  <span>Code (Soon) </span>
                   </a>
               </span>
             </div>
@@ -127,24 +103,19 @@
 
 <div class="container">
   <div class="content has-text-centered">
-    <video id="vid_newyork" controls autoplay muted loop style="max-width: 100%; border: 3px solid #000000;">
-      <source src="static/images/video_newyork_ours.mp4">
-    </video>
-    <p>
-      <span class="dnerf">SyncDiffusion</span> generates globally coherent panoramas by synchronizing multiple diffusions.
+    <p style="font-size: 125%;">
+      tl;dr: <span class="dnerf">ReGround</span> resolves the issue of description omission in GLIGEN [1] while accurately reflecting the bounding boxes, 
+      <b>without any extra cost</b>.
     </p>
+    <video id="“axe”" controls="" autoplay="" muted="" loop="" style="max-width:80%;">
+      <source src="./static/reground_video.mp4">
+    </video>
   </div>
 </div>
 
 <script>
    document.getElementById('vid_newyork').play();
 </script>
-
-<!-- <section class="section">
-  <div class="container is-max-desktop">
-    <video src="static/images/video_newyork_ours.mp4" controls autoplay></video>
-  </div>
-</section> -->
 
 <section class="section">
   <div class="container is-max-desktop">
@@ -154,24 +125,24 @@
       <!-- <div class="column is-four-fifths"> -->
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
-          <p>
-            The remarkable capabilities of pretrained image diffusion models have been utilized not only for generating fixed-size images but also for creating panoramas. 
-            However, naive stitching of multiple images often results in visible seams. Recent techniques have attempted to address this issue by performing joint diffusions in
-            multiple windows and averaging latent features in overlapping regions. However,
-            these approaches, which focus on seamless montage generation, often yield incoherent outputs by blending different scenes within a single image. 
-            To overcome this limitation, we propose <span class="dnerf">SyncDiffusion</span>, a plug-and-play module that synchronizes multiple diffusions through gradient descent from a perceptual similarity loss.
-            Specifically, we compute the gradient of the perceptual loss using the predicted denoised images at each denoising step, providing meaningful guidance for achieving
-            coherent montages. Our experimental results demonstrate that our method produces
-            significantly more coherent outputs compared to previous methods (66.35% vs. 33.65% in our user study) while still maintaining fidelity (as assessed by GIQA)
-            and compatibility with the input prompt (as measured by CLIP score).
+          <p style="font-size: 110%;">
+            <i>When an image generation process is guided by both a text prompt and spatial cues, such as a set of bounding boxes, 
+            do these elements work in harmony, or does one dominate the other?</i>
+            Our analysis of a pretrained image diffusion model that integrates 
+            gated self-attention into the U-Net reveals that spatial grounding often outweighs textual grounding due to the sequential flow 
+            from gated self-attention to cross-attention. We demonstrate that such bias can be significantly mitigated without sacrificing accuracy 
+            in either grounding by simply rewiring the network architecture, changing from sequential to parallel for gated self-attention 
+            and cross-attention. This surprisingly simple yet effective solution does not require any fine-tuning of the network but significantly 
+            reduces the trade-off between the two groundings. Our experiments demonstrate significant improvements from the original GLIGEN 
+            to the rewired version in the trade-off between textual grounding and spatial grounding.
           </p>
         </div>
       </div>
 
       <!-- ========== Video ========== -->
-      <video id="“axe”" controls="" autoplay="" muted="" loop="" style="max-width:100%;">
-        <source src="./static/syncdiffusion_video_resized.mp4">
-      </video>
+      <!-- <video id="“axe”" controls="" autoplay="" muted="" loop="" style="max-width:90%;">
+        <source src="./static/reground_video.mp4">
+      </video> -->
     </div>
     <!--/ Abstract. -->
   </div>
@@ -184,18 +155,18 @@
     <!-- <div class="column is-four-fifths"></div> -->
       <!-- Abstract. -->
     <div class="columns is-centered has-text-centered is-flex-direction-column">
-      <h2 class="title is-3">Main Idea</h2>
+      <h2 class="title is-3">Trade-off between Textual and Spatial Grounding</h2>
       <div class="container">
-        <img src="./static/images/framework.png" alt="Framework" style="max-width:80%;">
+        <img src="./static/images/gligen_ablation.png" alt="Framework" style="max-width:90%;">
       </div>
       <div class="content has-text-justified">
-        <p>
-          LPIPS scores computed across the noisy images at the intermediate step (t = 45 out of 50) of the reverse process (left), 
-        the <i>predicted denoised images</i> at the same timestep t (middle), and the final generated images at timestep t = 0 (right). 
-        The indistinguishable noisy images yield similar LPIPS scores among them, whereas the predicted denoised images, which
-        closely resemble the final outputs even at the beginning of the denoising process, exhibit LPIPS
-        scores that align with those of the final generated images. This indicates that the predicted denoised
-        images can provide meaningful guidance for producing coherent panoramas in the diffusion process.
+        <p></p>
+        <p style="font-size: 110%;">
+          (a) Images generated by GLIGEN [1] while varying the activation duration of gated self-attention (&gamma;) in scheduled sampling (Sec. 5.1). 
+          The <span style="color:crimson"><b>red</b></span> words in the text prompt denote the words used as labels of the input bounding boxes. 
+          Note that to reflect the <u>underlined</u> description in the text prompt in the final image, &gamma; must be decreased to 0.1, 
+          which compromises spatial grounding accuracy. (b) In contrast, our <span class="dnerf">ReGround</span> reflects the <u>underlined</u> phrase even when
+           &gamma;=1.0, therefore achieving high accuracy in both textual and spatial grounding.
         </p>
       </div>
     </div>
@@ -203,438 +174,76 @@
   <!--/ Abstract. -->
 </section><hr>
 
-<!-- Hugging Face Demo. -->
-<section class="section" id="huggingface_demo">
+<section class="section">
   <div class="container is-max-desktop">
+    <!-- <div class="column is-four-fifths"></div> -->
+      <!-- Abstract. -->
     <div class="columns is-centered has-text-centered is-flex-direction-column">
-      <h2 class="title is-3">HuggingFace Demo</h2>
-    <div class="demoCon" style="width:100%; height:fit-content;">
-      <script
-        type="module"
-        src="https://gradio.s3-us-west-2.amazonaws.com/3.44.3/gradio.js"
-      ></script>
-
-      <gradio-app 
-        src="https://kaist-geometric-ai-lab-syncdiffusion-demo.hf.space"
-        eager="true"
-        theme_mode="light"
-      ></gradio-app>
+      <h2 class="title is-3">Impact of Cross-Attention on Spatial Grounding</h2>
+      <div class="container">
+        <img src="./static/images/cross_attention_ablation.png" alt="Framework" style="max-width:90%;">
+      </div>
+      <div class="content has-text-justified">
+        <p></p>
+        <p style="font-size: 110%;">
+          Comparison of the output of GLIGEN [1] <i>with</i> and <i>without</i> cross-attention. 
+          While the absence of cross-attention reduces realism and quality of the image, 
+          the silhouette of objects remains grounded within the given bounding boxes, 
+          as shown in the third column of each case.
+        </p>
+      </div>
     </div>
   </div>
-</section><hr><br>
-<!-- Hugging Face Demo. -->
-
-
-<section class="hero teaser">
-  <div class="columns is-centered has-text-centered is-flex-direction-column"><br>
-    <h2 class="title is-3">Generated Images</h2>
-  </div>
-  <div class="container is-max-desktop">
-    <p><span class="dnerf">SyncDiffusion</span> can generate images of <b>arbitrary</b> resolutions by leveraging pre-trained Text-to-Image diffusion models
-    (e.g. Stable Diffusion) without additional training.</p>
-  </div>
-  <div class="columns is-centered has-text-centered is-flex-direction-column">
-    <div class="container" style="width:80%;">
-      <img src="./static/images/newyork_ours_01.png" alt="New York (Ours)" style="max-width:100%;">
-      <h2 class="subtitle has-text-centered">
-        "Skyline of New York City"
-      </h2>
-      <img src="./static/images/concert_ours_01.png" alt="Concert (Ours)" style="max-width:100%;">
-      <h2 class="subtitle has-text-centered">
-        "A photo of a rock concert"
-      </h2>
-      <img src="./static/images/anime_ours_01.png" alt="Anime (Ours)" style="max-width:100%;">
-      <h2 class="subtitle has-text-centered">
-        "Natural landscape in anime style illustration"
-      </h2>
-      <img src="./static/images/grass_ours_01.png" alt="Grass (Ours)" style="max-width:100%;">
-      <h2 class="subtitle has-text-centered">
-        "A photo of a grassland with animals"
-      </h2>
-      <img src="./static/images/wallpaper_ours_01.png" alt="Lalaland (Ours)" style="max-width:100%;">
-      <h2 class="subtitle has-text-centered">
-        "Silhouette wallpaper of a dreamy scene with shooting stars"
-      </h2>
-      <img src="./static/images/lake_ours_01.png" alt="Lake (Ours)" style="max-width:100%;">
-      <h2 class="subtitle has-text-centered">
-        "A photo of a lake under the northern lights"
-      </h2>
-      <img src="./static/images/mountain_ours_01.png" alt="Lake (Ours)" style="max-width:100%;">
-      <h2 class="subtitle has-text-centered">
-        "A photo of a mountain range at twilight"
-      </h2>
-      <img src="./static/images/castle_ours_01.png" alt="Lake (Ours)" style="max-width:100%;">
-      <h2 class="subtitle has-text-centered">
-        "A cinematic view of a castle in the sunset"
-      </h2>
-      <!-- <h2 class="subtitle has-text-centered">
-        <span class="dnerf">SyncDiffusion</span> generates globally coherent panoramas by synchronizing multiple diffusions.
-      </h2> -->
-    </div>
-  </div>
-
-  <!-- Vertical images -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-
-  <div class="container is-max-desktop">
-    <div class="row" style="width:100%;">
-      <div class="h-100 w-25">
-        <div class="has-text-centered" style="height:100%;width:80%;margin: auto;">
-          <img src="./static/images/waterfall_ours_01.png" alt="Waterfall (Ours)" style="height:auto;width:90%;">
-        </div>
-        <h2 class="subtitle has-text-centered" style="font-size:large;">
-          "A waterfall"
-        </h2>
-      </div>
-      <div class="h-100 w-25">
-        <div class="has-text-centered" style="height:100%;width:80%;margin: auto;">
-          <img src="./static/images/alley_ours_01.png" alt="Alley (Ours)"  style="height:auto;width:90%;">
-        </div>
-        <h2 class="subtitle has-text-centered" style="font-size:large;">
-          "A bird's eye view of an alley with shops"
-        </h2>
-      </div>
-      <div class="h-100 w-25">
-        <div class="has-text-centered" style="height:100%;width:80%;margin: auto;">
-          <img src="./static/images/vine_ours_01.png" alt="Vines (Ours)"  style="height:auto;width:90%;">
-        </div>
-        <h2 class="subtitle has-text-centered" style="font-size:large;">
-          "A photo of vines on a brick wall"
-        </h2>
-      </div>
-      <div class="h-100 w-25">
-        <div class="has-text-centered" style="height:100%;width:80%;margin: auto;">
-          <img src="./static/images/rail_ours_01.png" alt="Lake (Ours)"  style="height:auto;width:90%;">
-        </div>
-        <h2 class="subtitle has-text-centered" style="font-size:large;">
-          "A top view of a single railway"
-        </h2>
-      </div>
-      
-    </div>
-  </div>
-</section><br><br><hr>
-
+</section><hr>
 
 <section class="section">
   <div class="container is-max-desktop">
-  <!-- <div class="container"> -->
-  <!-- <div class="hero teaser"> -->
-    <!-- <div class="columns is-centered has-text-centered is-flex-direction-column"> -->
-    <div class="columns is-centered is-flex-direction-column"><br>
-      <div class="has-text-centered"><h2 class="title is-3">Qualitative Comparisons</h2></div><br>
-    <p><span class="dnerf">SyncDiffusion</span> generates globally coherent panorama images compared to the state-of-the-art MultiDiffusion [Bar-Tal et al. 2023]. 
-      If you are on a mobile device, please rotate your device to a horizontal or landscape orientation for a better view. <br></br></p>
-    <div class="columns is-centered has-text-centered">
-      <div class="column">
-        <div class="content">
-          <div class="column is-full-width">
-          <!-- <div class="column"> -->
-            <div class="column">
-              <!--example 9-->
-              <div id="example9" class="bal-container-new">
-                <div class="bal-after">
-                  <img src="./static/images/concert_ours_01.png">
-                  <div class="bal-afterPosition afterLabel">Ours</div>
-                </div>
-                <div class="bal-before">
-                  <div class="bal-before-inset">
-                    <img src="./static/images/concert_md_01.png">
-                    <div class="bal-beforePosition beforeLabel ">MultiDiffusion [Bar-Tal et al. 2023]</div>
-                  </div>
-                </div>
-                <div class="bal-handle">
-                  <span class="handle-left-arrow"></span>
-                  <span class="handle-right-arrow"></span>
-                </div>
-              </div>
-              <p>“A photo of a rock concert”</p>
-              <p></p>
-              <!--example 15-->
-              <div id="example15" class="bal-container-new">
-                <div class="bal-after">
-                  <img src="./static/images/newyork_ours_01.png">
-                  <div class="bal-afterPosition afterLabel">Ours</div>
-                </div>
-                <div class="bal-before">
-                  <div class="bal-before-inset">
-                    <img src="./static/images/newyork_md_01.png">
-                    <div class="bal-beforePosition beforeLabel ">MultiDiffusion [Bar-Tal et al. 2023]</div>
-                  </div>
-                </div>
-                <div class="bal-handle">
-                  <span class="handle-left-arrow"></span>
-                  <span class="handle-right-arrow"></span>
-                </div>
-              </div>
-              <p>“Skyline of New York City”</p>
-              <p></p>
-              <!--example 1-->
-              <div id="example1" class="bal-container-new">
-                <div class="bal-after">
-                  <img src="./static/images/anime_ours_01.png">
-                  <div class="bal-afterPosition afterLabel">Ours</div>
-                </div>
-                <div class="bal-before">
-                  <div class="bal-before-inset">
-                    <img src="./static/images/anime_md_01.png">
-                    <div class="bal-beforePosition beforeLabel">MultiDiffusion [Bar-Tal et al. 2023]</div>
-                  </div>
-                </div>
-                <div class="bal-handle">
-                  <span class="handle-left-arrow"></span>
-                  <span class="handle-right-arrow"></span>
-                </div>
-              </div>
-              <p>“Natural landscape in anime style illustration”</p>
-              <p></p>
-              <!--example 2-->
-              <!-- <div id="example2" class="bal-container-new">
-                <div class="bal-after">
-                  <img src="./static/images/beach_ours_01.png">
-                  <div class="bal-afterPosition afterLabel">Ours</div>
-                </div>
-                <div class="bal-before">
-                  <div class="bal-before-inset">
-                    <img src="./static/images/beach_md_01.png">
-                    <div class="bal-beforePosition beforeLabel ">MultiDiffusion [Bar-Tal et al. 2023]</div>
-                  </div>
-                </div>
-                <div class="bal-handle">
-                  <span class="handle-left-arrow"></span>
-                  <span class="handle-right-arrow"></span>
-                </div>
-              </div>
-              <p>“A beach with palm trees”</p>
-              <p></p> -->
-              <!--example 3-->
-              <div id="example3" class="bal-container-new">
-                <div class="bal-after">
-                  <img src="./static/images/wallpaper_ours_01.png">
-                  <div class="bal-afterPosition afterLabel">Ours</div>
-                </div>
-                <div class="bal-before">
-                  <div class="bal-before-inset">
-                    <img src="./static/images/wallpaper_md_01.png">
-                    <div class="bal-beforePosition beforeLabel ">MultiDiffusion [Bar-Tal et al. 2023]</div>
-                  </div>
-                </div>
-                <div class="bal-handle">
-                  <span class="handle-left-arrow"></span>
-                  <span class="handle-right-arrow"></span>
-                </div>
-              </div>
-              <p>“Silhouette wallpaper of a dreamy scene with shooting stars”</p>
-              <p></p>
-              <!--example 5-->
-              <!-- <div id="example5" class="bal-container-new">
-                <div class="bal-after">
-                  <img src="./static/images/beachside_ours_01.png">
-                  <div class="bal-afterPosition afterLabel">Ours</div>
-                </div>
-                <div class="bal-before">
-                  <div class="bal-before-inset">
-                    <img src="./static/images/beachside_md_01.png">
-                    <div class="bal-beforePosition beforeLabel ">MultiDiffusion [Bar-Tal et al. 2023]</div>
-                  </div>
-                </div>
-                <div class="bal-handle">
-                  <span class="handle-left-arrow"></span>
-                  <span class="handle-right-arrow"></span>
-                </div>
-              </div>
-              <p>“A film photo of a beachside street under the sunset”</p>
-              <p></p> -->
-              <!--example 6-->
-              <div id="example6" class="bal-container-new">
-                <div class="bal-after">
-                  <img src="./static/images/castle_ours_01.png">
-                  <div class="bal-afterPosition afterLabel">Ours</div>
-                </div>
-                <div class="bal-before">
-                  <div class="bal-before-inset">
-                    <img src="./static/images/castle_md_01.png">
-                    <div class="bal-beforePosition beforeLabel ">MultiDiffusion [Bar-Tal et al. 2023]</div>
-                  </div>
-                </div>
-                <div class="bal-handle">
-                  <span class="handle-left-arrow"></span>
-                  <span class="handle-right-arrow"></span>
-                </div>
-              </div>
-              <p>“A cinematic view of a castle in the sunset”</p>
-              <p></p>
-              <!--example 7-->
-              <div id="example7" class="bal-container-new">
-                <div class="bal-after">
-                  <img src="./static/images/cartoon_ours_01.png">
-                  <div class="bal-afterPosition afterLabel">Ours</div>
-                </div>
-                <div class="bal-before">
-                  <div class="bal-before-inset">
-                    <img src="./static/images/cartoon_md_01.png">
-                    <div class="bal-beforePosition beforeLabel ">MultiDiffusion [Bar-Tal et al. 2023]</div>
-                  </div>
-                </div>
-                <div class="bal-handle">
-                  <span class="handle-left-arrow"></span>
-                  <span class="handle-right-arrow"></span>
-                </div>
-              </div>
-              <p>“Cartoon panorama of spring summer beautiful nature”</p>
-              <p></p>
-              <!--example 8-->
-              <div id="example8" class="bal-container-new">
-                <div class="bal-after">
-                  <img src="./static/images/city_ours_01.png">
-                  <div class="bal-afterPosition afterLabel">Ours</div>
-                </div>
-                <div class="bal-before">
-                  <div class="bal-before-inset">
-                    <img src="./static/images/city_md_01.png">
-                    <div class="bal-beforePosition beforeLabel ">MultiDiffusion [Bar-Tal et al. 2023]</div>
-                  </div>
-                </div>
-                <div class="bal-handle">
-                  <span class="handle-left-arrow"></span>
-                  <span class="handle-right-arrow"></span>
-                </div>
-              </div>
-              <p>“A photo of a city skyline at night”</p>
-              <p></p>
-              <!--example 10-->
-              <div id="example10" class="bal-container-new">
-                <div class="bal-after">
-                  <img src="./static/images/coral_ours_01.png">
-                  <div class="bal-afterPosition afterLabel">Ours</div>
-                </div>
-                <div class="bal-before">
-                  <div class="bal-before-inset">
-                    <img src="./static/images/coral_md_01.png">
-                    <div class="bal-beforePosition beforeLabel ">MultiDiffusion [Bar-Tal et al. 2023]</div>
-                  </div>
-                </div>
-                <div class="bal-handle">
-                  <span class="handle-left-arrow"></span>
-                  <span class="handle-right-arrow"></span>
-                </div>
-              </div>
-              <p>“A photo of a beautiful ocean with coral reef”</p>
-              <p></p>
-              <!--example 11-->
-              <div id="example11" class="bal-container-new">
-                <div class="bal-after">
-                  <img src="./static/images/grass_ours_01.png">
-                  <div class="bal-afterPosition afterLabel">Ours</div>
-                </div>
-                <div class="bal-before">
-                  <div class="bal-before-inset">
-                    <img src="./static/images/grass_md_01.png">
-                    <div class="bal-beforePosition beforeLabel ">MultiDiffusion [Bar-Tal et al. 2023]</div>
-                  </div>
-                </div>
-                <div class="bal-handle">
-                  <span class="handle-left-arrow"></span>
-                  <span class="handle-right-arrow"></span>
-                </div>
-              </div>
-              <p>“A photo of a grassland with animals”</p>
-              <p></p>
-              <!--example 12-->
-              <div id="example12" class="bal-container-new">
-                <div class="bal-after">
-                  <img src="./static/images/lake_ours_01.png">
-                  <div class="bal-afterPosition afterLabel">Ours</div>
-                </div>
-                <div class="bal-before">
-                  <div class="bal-before-inset">
-                    <img src="./static/images/lake_md_01.png">
-                    <div class="bal-beforePosition beforeLabel ">MultiDiffusion [Bar-Tal et al. 2023]</div>
-                  </div>
-                </div>
-                <div class="bal-handle">
-                  <span class="handle-left-arrow"></span>
-                  <span class="handle-right-arrow"></span>
-                </div>
-              </div>
-              <p>“A photo of a lake under the northern lights”</p>
-              <p></p>
-              <!--example 13-->
-              <div id="example13" class="bal-container-new">
-                <div class="bal-after">
-                  <img src="./static/images/lalaland_ours_01.png">
-                  <div class="bal-afterPosition afterLabel">Ours</div>
-                </div>
-                <div class="bal-before">
-                  <div class="bal-before-inset">
-                    <img src="./static/images/lalaland_md_01.png">
-                    <div class="bal-beforePosition beforeLabel ">MultiDiffusion [Bar-Tal et al. 2023]</div>
-                  </div>
-                </div>
-                <div class="bal-handle">
-                  <span class="handle-left-arrow"></span>
-                  <span class="handle-right-arrow"></span>
-                </div>
-              </div>
-              <p>“An illustration of a beach in La La Land style”</p>
-              <p></p>
-              <!--example 14-->
-              <div id="example14" class="bal-container-new">
-                <div class="bal-after">
-                  <img src="./static/images/mountain_ours_01.png">
-                  <div class="bal-afterPosition afterLabel">Ours</div>
-                </div>
-                <div class="bal-before">
-                  <div class="bal-before-inset">
-                    <img src="./static/images/mountain_md_01.png">
-                    <div class="bal-beforePosition beforeLabel ">MultiDiffusion [Bar-Tal et al. 2023]</div>
-                  </div>
-                </div>
-                <div class="bal-handle">
-                  <span class="handle-left-arrow"></span>
-                  <span class="handle-right-arrow"></span>
-                </div>
-              </div>
-              <p>“A photo of a mountain range at twilight”</p>
-              <p></p>
-              <!--example 16-->
-              <!-- <div id="example16" class="bal-container-new">
-                <div class="bal-after">
-                  <img src="./static/images/snowy_ours_01.png">
-                  <div class="bal-afterPosition afterLabel">Ours</div>
-                </div>
-                <div class="bal-before">
-                  <div class="bal-before-inset">
-                    <img src="./static/images/snowy_md_01.png">
-                    <div class="bal-beforePosition beforeLabel ">MultiDiffusion [Bar-Tal et al. 2023]</div>
-                  </div>
-                </div>
-                <div class="bal-handle">
-                  <span class="handle-left-arrow"></span>
-                  <span class="handle-right-arrow"></span>
-                </div>
-              </div>
-              <p>“A photo of a snowy mountain peak with skiers”</p>
-              <p></p> -->
-            </div>
-          </div>
-        </div>
+    <!-- <div class="column is-four-fifths"></div> -->
+      <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered is-flex-direction-column">
+      <h2 class="title is-3">Main Idea</h2>
+      <div class="container">
+        <img src="./static/images/main_pipeline_figure.png" alt="Framework" style="max-width:90%;">
+      </div>
+      <div class="content has-text-justified">
+        <p></p>
+        <p style="font-size: 110%;">
+          Comparison between the U-Net architectures of (a) Latent Diffusion Model (LDM) [2], (b) GLIGEN [1]
+           and (c) our <span class="dnerf">ReGround</span>. From LDM, GLIGEN enables spatial grounding by injecting 
+           gated self-attention before cross-attention, forming a <i>sequential</i> flow of them. 
+        </p>
+        <p style="font-size: 110%;">
+           Based on GLIGEN, 
+           our <span class="dnerf">ReGround</span> changes the relationship of the two attention modules to become 
+           <i>parallel</i>, resulting in noticeable improvement in textual grounding while preserving the spatial grounding 
+           capability. (The residual block before self-attention is omitted.)
+        </p>
       </div>
     </div>
   </div>
+  <!--/ Abstract. -->
+
+  <!--/ Abstract. -->
 </section><hr>
 
 <section class="hero teaser">
   <div class="columns is-centered has-text-centered is-flex-direction-column"><br>
-    <h2 class="title is-3">Plug-and-Play Applications</h2>
+    <h2 class="title is-3">Qualitative Comparisons</h2>
   </div>
-  <p></p>
+  <div class="container is-max-desktop">
+    <p><span class="dnerf">ReGround</span> ...</p>
+  </div>
   <div class="columns is-centered has-text-centered is-flex-direction-column">
-    <div class="container" style="width:70%;">
-      <img src="./static/images/figure-applications.png" alt="applications" style="max-width:100%;">
+    <div class="container" style="width:80%;">
+      <img src="./static/images/qualitative/FULL_IMAGES_100582.png" alt="New York (Ours)" style="max-width:75%;">
+      <hr>
+      <img src="./static/images/qualitative/FULL_IMAGES_110884.png" alt="Concert (Ours)" style="max-width:75%;">
+      <hr>
+      <img src="./static/images/qualitative/FULL_IMAGES_17182.png" alt="Grass (Ours)" style="max-width:75%;">
+      <hr>
     </div>
   </div>
-</section><hr>
+</section><br><br><hr>
 
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
