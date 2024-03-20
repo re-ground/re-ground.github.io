@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="SyncDiffusion synchronizes multiple diffusions to create coherent image montages.">
+        content="ReGround: Improving Textual and Spatial Grounding at No Cost">
   <meta name="keywords" content="ReGround, Diffusion models, Grounding">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
@@ -65,7 +65,7 @@
             <div class="publication-links">
               <!-- PDF Link. -->
               <span class="link-block">
-                <a href=""
+                <a href="./static/reground_paper.pdf"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -231,103 +231,56 @@
     <h2 class="title is-3">Qualitative Comparisons</h2>
   </div>
   <div class="container is-max-desktop">
-    <p><span class="dnerf">ReGround</span> ...</p>
+    <p style="font-size: 120%;"><span class="dnerf">ReGround</span> (last column) resolves the issue of <u>description omission</u>
+      while accurately reflecting the bounding box information.</p>
   </div>
+  <br><br>
   <div class="columns is-centered has-text-centered is-flex-direction-column">
-    <div class="container" style="width:80%;">
-      <img src="./static/images/qualitative/FULL_IMAGES_100582.png" alt="New York (Ours)" style="max-width:75%;">
-      <hr>
-      <img src="./static/images/qualitative/FULL_IMAGES_110884.png" alt="Concert (Ours)" style="max-width:75%;">
-      <hr>
-      <img src="./static/images/qualitative/FULL_IMAGES_17182.png" alt="Grass (Ours)" style="max-width:75%;">
-      <hr>
+    <div class="container" style="width:75%;">
+      <img src="./static/images/qualitative/header.png" alt="header" style="max-width:75%;">
+      <hr><br>
+      <img src="./static/images/qualitative/website_teaser.png" alt="comparison-01" style="max-width:75%;">
+      <img src="./static/images/qualitative/website_main_qualitative.png" alt="comparison-02" style="max-width:75%;">
     </div>
+    <br>
+    <span class="link-block">
+      <a href="./gallery.html"
+         class="external-link button is-normal is-rounded is-dark">
+        <span>See More Results</span>
+        <span class="icon">
+          <i class="far fa-arrow-alt-circle-right	"></i>
+        </span>
+      </a>
+    </span>
+    <br>
   </div>
 </section><br><br><hr>
 
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@inproceedings{
-        lee2023syncdiffusion,
-        title={SyncDiffusion: Coherent Montage via Synchronized Joint Diffusions},
-        author={Yuseung Lee and Kunho Kim and Hyunjin Kim and Minhyuk Sung},
-        booktitle={Thirty-seventh Conference on Neural Information Processing Systems},
-        year={2023},
-    }</code></pre>
+    <!-- <pre><code>
+    </code></pre> -->
   </div>
 </section><hr>
 
-<section class="section">
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">Reference</h2>
+    <p style="font-size: 110%;">
+      [1] <a href="https://gligen.github.io/">GLIGEN: Open-Set Grounded Text-to-Image Generation</a>, Li <i>et al.</i>, CVPR 2023.
+      <br>
+      [2] <a href="https://arxiv.org/abs/2112.10752">High-Resolution Image Synthesis with Latent Diffusion Models</a>, Rombach <i>et al.</i>, CVPR 2022.
+    </p>
+  </div>
+</section><hr>
+
+<!-- <section class="section">
   <div class="container is-max-desktop content">
     <h2 class="title">Acknowledgements</h2>
-    We thank Juil Koo for valuable discussions on diffusion models and Eunji Hong for help in conducting user studies. This work was partially supported by the NRF grant (RS2023-00209723) and IITP grants (2019-0-00075, 2022-0-00594, RS-2023-00227592) funded by the Korean government (MSIT), the Technology Innovation Program (20016615) funded by the Korean government (MOTIE), grants from ETRI, KT, NCSOFT, and Samsung Electronics, and computing resource support from KISTI.
-    <!-- We thank the authors of <a href="https://multidiffusion.github.io/">MultiDiffusion</a> and <a href="https://omriavrahami.com/blended-latent-diffusion-page/">Blended Latent Diffusion</a> for 
-    providing their code and models. -->
+    TODO.
   </div>
-</section>
-
-<script src="static/js/script.js"></script>
-<script>
-  new BeforeAfter({
-    id: "#example1"
-  });
-  // new BeforeAfter({
-  //   id: "#example2"
-  // });
-  new BeforeAfter({
-    id: "#example3"
-  });
-  // new BeforeAfter({
-  //   id: "#example5"
-  // });
-  new BeforeAfter({
-    id: "#example6"
-  });
-  new BeforeAfter({
-    id: "#example7"
-  });
-  new BeforeAfter({
-    id: "#example8"
-  });
-  new BeforeAfter({
-    id: "#example9"
-  });
-  new BeforeAfter({
-    id: "#example10"
-  });
-  new BeforeAfter({
-    id: "#example11"
-  });
-  new BeforeAfter({
-    id: "#example12"
-  });
-  new BeforeAfter({
-    id: "#example13"
-  });
-  new BeforeAfter({
-    id: "#example14"
-  });
-  new BeforeAfter({
-    id: "#example15"
-  });
-  // new BeforeAfter({
-  //   id: "#example16"
-  // });
-</script>
-
-
-<!-- <section class="hero teaser">
-  <div class="columns is-centered has-text-centered is-flex-direction-column"><br>
-    <h2 class="title is-3">Plug-and-Play Applications</h2>
-  </div>
-  <p></p>
-  <div class="columns is-centered has-text-centered is-flex-direction-column">
-    <div class="container" style="width:70%;">
-      <img src="./static/images/figure-applications.png" alt="applications" style="max-width:100%;">
-    </div>
-  </div>
-</section><hr> -->
+</section> -->
 
 <footer class="footer">
   <div class="container">
