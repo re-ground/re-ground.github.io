@@ -48,11 +48,11 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">ReGround: Improving Textual and Spatial Grounding at No Cost</h1>
+          <h1 class="title is-2 publication-title">ReGround: Improving Textual and Spatial Grounding at No Cost</h1>
           <div style="font-size:x-large;">ECCV 2024</div><br>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              <a href="https://phillipinseoul.github.io/">Yuseung Lee</a>,</span>
+              <a href="https://phillipinseoul.github.io/">Phillip Y Lee</a>,</span>
             <span class="author-block">
               <a href="https://mhsung.github.io/">Minhyuk Sung</a></span>
           </div>
@@ -100,30 +100,35 @@
   </div>
 </section>
 
-
-<div class="container">
-  <div class="content has-text-centered">
+<section class="hero teaser">
+  <div class="container is-max-desktop has-text-centered">
     <p style="font-size: 125%;">
       tl;dr: <span class="dnerf">ReGround</span> resolves the issue of description omission in GLIGEN [1] while accurately reflecting the bounding boxes, 
       <b>without any extra cost</b>.
     </p>
-    <video id="“axe”" controls="" autoplay="" muted="" loop="" style="max-width:80%;">
-      <source src="./static/reground_video.mp4">
-    </video>
   </div>
-</div>
+  <br><br>
+  <div class="columns is-centered has-text-centered is-flex-direction-column">
+    <div class="container" style="width:90%;">
+      <img src="./static/images/qualitative/header.png" alt="header" style="max-width:80%;">
+      <br>
+      <img src="./static/images/qualitative/website_teaser.png" alt="comparison-01" style="max-width:80%;">
+    </div>
+    <br>
+  </div>
+</section><br><br>
 
 <script>
    document.getElementById('vid_newyork').play();
 </script>
 
+<hr>
+
 <section class="section">
   <div class="container is-max-desktop">
     <!-- Abstract. -->
-    <!-- <div class="columns is-centered has-text-centered"> -->
     <div class="columns is-centered has-text-centered is-flex-direction-column">
-      <!-- <div class="column is-four-fifths"> -->
-        <h2 class="title is-3">Abstract</h2>
+        <h2 class="title is-4">Abstract</h2>
         <div class="content has-text-justified">
           <p style="font-size: 110%;">
             <i>When an image generation process is guided by both a text prompt and spatial cues, such as a set of bounding boxes, 
@@ -137,14 +142,15 @@
             to the rewired version in the trade-off between textual grounding and spatial grounding.
           </p>
         </div>
-      </div>
+      </div><br>
 
-      <!-- ========== Video ========== -->
-      <!-- <video id="“axe”" controls="" autoplay="" muted="" loop="" style="max-width:90%;">
-        <source src="./static/reground_video.mp4">
-      </video> -->
+    <div class="container">
+      <div class="content has-text-centered">
+        <video id="“axe”" controls="" autoplay="" muted="" loop="" style="max-width:90%;">
+          <source src="./static/reground_video.mp4">
+        </video>
+      </div>
     </div>
-    <!--/ Abstract. -->
   </div>
 </section>
 
@@ -155,7 +161,7 @@
     <!-- <div class="column is-four-fifths"></div> -->
       <!-- Abstract. -->
     <div class="columns is-centered has-text-centered is-flex-direction-column">
-      <h2 class="title is-3">Trade-off between Textual and Spatial Grounding</h2>
+      <h2 class="title is-4">Trade-off between Textual and Spatial Grounding</h2>
       <div class="container">
         <img src="./static/images/gligen_ablation.png" alt="Framework" style="max-width:90%;">
       </div>
@@ -179,7 +185,7 @@
     <!-- <div class="column is-four-fifths"></div> -->
       <!-- Abstract. -->
     <div class="columns is-centered has-text-centered is-flex-direction-column">
-      <h2 class="title is-3">Impact of Cross-Attention on Spatial Grounding</h2>
+      <h2 class="title is-4">Impact of Cross-Attention on Spatial Grounding</h2>
       <div class="container">
         <img src="./static/images/cross_attention_ablation.png" alt="Framework" style="max-width:90%;">
       </div>
@@ -201,7 +207,7 @@
     <!-- <div class="column is-four-fifths"></div> -->
       <!-- Abstract. -->
     <div class="columns is-centered has-text-centered is-flex-direction-column">
-      <h2 class="title is-3">Main Idea</h2>
+      <h2 class="title is-4">Main Idea: Network Rewiring</h2>
       <div class="container">
         <img src="./static/images/main_pipeline_figure.png" alt="Framework" style="max-width:90%;">
       </div>
@@ -228,19 +234,18 @@
 
 <section class="hero teaser">
   <div class="columns is-centered has-text-centered is-flex-direction-column"><br>
-    <h2 class="title is-3">Qualitative Comparisons</h2>
+    <h2 class="title is-4">Qualitative Comparisons</h2>
   </div>
-  <div class="container is-max-desktop">
+  <div class="container is-max-desktop is-centered has-text-centered">
     <p style="font-size: 120%;"><span class="dnerf">ReGround</span> (last column) resolves the issue of <u>description omission</u>
       while accurately reflecting the bounding box information.</p>
   </div>
   <br><br>
   <div class="columns is-centered has-text-centered is-flex-direction-column">
     <div class="container" style="width:75%;">
-      <img src="./static/images/qualitative/header.png" alt="header" style="max-width:75%;">
-      <hr><br>
-      <img src="./static/images/qualitative/website_teaser.png" alt="comparison-01" style="max-width:75%;">
-      <img src="./static/images/qualitative/website_main_qualitative.png" alt="comparison-02" style="max-width:75%;">
+      <img src="./static/images/qualitative/header.png" alt="header" style="max-width:80%;">
+      <br>
+      <img src="./static/images/qualitative/website_main_qualitative.png" alt="comparison-02" style="max-width:80%;">
     </div>
     <br>
     <span class="link-block">
@@ -262,7 +267,7 @@
     <pre><code>
       @article{lee2024reground,
         title={ReGround: Improving Textual and Spatial Grounding at No Cost},
-        author={Lee, Yuseung and Sung, Minhyuk},
+        author={Lee, Phillip Y and Sung, Minhyuk},
         journal={arXiv preprint arXiv:2403.13589},
         year={2024}
       }
